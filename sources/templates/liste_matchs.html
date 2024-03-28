@@ -1,0 +1,242 @@
+{% extends "menu.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style>
+      html, body {
+      min-height: 100%;
+      justify-content: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-image: url(https://img.freepik.com/photos-premium/journee-internationale-du-sport-6-avril_10221-18936.jpg);
+        
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Opacité de l'effet noir (ajustez selon vos préférences) */
+        z-index: -0; /* Placez l'effet noir en arrière-plan de la page */
+      }
+      body, div, form, input, select, textarea, label, p { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #DAAE62;
+      line-height: 22px;
+      z-index: 1;
+      }
+      h1 {
+      position: absolute;
+      margin: 0;
+      font-size: 20px;
+      color: #fff;
+      z-index: 2;
+      line-height: 40px;
+      }
+	  h3,label {
+	  display: inline-block;
+      margin-left: 40px;
+      font-size: 20px;
+      z-index: 2;
+      }
+	  h3{
+		color: #fff;
+
+	  }
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      margin-top: 100px;
+    
+      margin-bottom: 10%;
+      }
+      form {
+        border: 5px solid #f1f1f1;
+
+      width: 70%;
+      padding: 20px;
+      border-radius: 6px;
+      background: #000000;
+      box-shadow: 0 0 8px  #669999; 
+      }
+      .banner {
+      position: relative;
+      height: 100px;
+      background-image: url("/uploads/media/default/0001/02/c1504011491c4e04e5158b63a27a4ea654b03ed1.jpeg");  
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      }
+      .banner::after {
+      content: "";
+      background-color: rgba(0, 0, 0, 0.2); 
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      }
+      input, select, textarea {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      }
+      input {
+        align-items: center;
+      width: 39%;
+      padding: 8px 8px;
+      margin: 8px 0;
+      color: #000000;
+        
+    }
+      h2, p{
+        color:rgb(255, 255, 255)
+      }
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+      .item:hover p, .item:hover i, input:hover::placeholder {
+      color:  #669999;
+      }
+      .item input:hover, .item select:hover, .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 3px 0  #669999;
+      color: #669999;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+      .item span {
+      color: red;
+      }
+      .week {
+      display:flex;
+      justfiy-content:space-between;
+      }
+      .colums {
+      display:flex;
+      justify-content:space-between;
+      flex-direction:row;
+      flex-wrap:wrap;
+      }
+      .colums div {
+      width:100%;
+      }
+      input[type="date"]{
+        width: 45%;
+      }
+      .item i {
+      right: 1%;
+      top: 30px;
+      z-index: 1;
+      }
+      input[type=time]{
+        width: 25%;
+      }
+      input[type=text]{
+        width: 50%
+      }
+      .flax {
+      display:flex;
+      justify-content:space-around;
+      }
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      label{
+        padding: 20px;
+        display: inline-flex;
+        align-items: center;
+      }
+      p{
+        color: red;
+      }
+      .btn {
+        background: linear-gradient(144deg, #f501f5, #521b4b 50%, #981398);
+        color: #fff;
+        border-radius: 10px; 
+        padding: 10px !important;
+        margin-left: 39%;
+        width:20%;
+        text-align: center;
+
+      }
+      a{
+        text-decoration: none;
+        color: white;
+      }
+      
+      .btn:hover {
+        background: linear-gradient(144deg, #ffffff , 20%,#7b7b7b 50%,#ffffff );
+        color: rgb(0, 0, 0);
+        cursor: pointer;
+        transition: all 0.4s ease;
+      }
+
+
+      @media (min-width: 568px) {
+      .name-item, .city-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      }
+      .name-item input, .name-item div {
+      width: calc(50% - 20px);
+      }
+      .name-item div input {
+      width:97%;}
+      .name-item div label {
+      display:block;
+      padding-bottom:5px;
+      }
+      }
+    </style>
+  </head>
+  <body>
+	<div class="testbox">
+	  <form>
+		<input type="hidden" name="nb_match" value="{{ nb_match }}">
+		{% for row in rows %}
+		  <div class="banner">
+			<h1> {{row["equipe1"]}}  {{row["score_equipe1"] if row["score_equipe1"] else " - "}}: {{row["score_equipe2"] if row["score_equipe2"] else " - "}} {{row["equipe2"]}}</h1>
+		  </div>
+		  <div class="colums">
+			<div class="item">
+			  <label>Date  :<h3>{{ row["date"] if row["date"] else "non défini" }}</h3></label>
+			  <label>Heure :<h3>{{ row["heurre"] if row["heurre"] else "non défini" }}</h3></label>
+			  <label>Lieu  :<h3>{{ row["lieu"] if row["lieu"] else "non défini" }}</h3></label>                       
+			</div>          
+		  </div>
+		  <p>{{msg_error}}</p>
+		  <div class="btn-block">
+		  </div>
+		{% endfor %}
+    <button class="btn"><a href="{{ url_for('home') }}">Retour à l'accueil</a></button>
+	</div>
+  </body>
+  </html>
+  
+
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends "menu.html" %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vos Tournois</title>
+    <style>
+        body {
+            margin: 0;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-image: url(https://img.freepik.com/photos-premium/journee-internationale-du-sport-6-avril_10221-18936.jpg);
+            font-family: Arial, Helvetica, sans-serif;
+            margin-bottom: 10%;
+
+        }
+        div.shadow{
+            background-color: #333;
+            opacity: 0.6;
+        }
+        table{
+            margin: 10px auto; /* Utilisation de "auto" pour centrer la table horizontalement */
+            border-collapse: collapse; /* Fusionner les bordures pour un aspect plus propre */
+            width: 80%;
+        }
+        th, td {
+            background-color: rgba(193, 193, 193, 0.532);
+            color: #000000;
+            border: 2px solid #1a1a1a; /* Bordure de 1 pixel solide avec une couleur grise (#ddd) */
+            padding: 8px; /* Ajouter un peu d'espace autour du contenu */
+            text-align: left; /* Aligner le texte à gauche */
+            width: 100%;
+            height: 10%;
+        }
+        table tr:hover {
+            background-color: #d6d6d6e6; /* Couleur de fond au survol */
+            font-weight: bold; /* Style du texte (gras) au survol */
+            color: #333; /* Couleur du texte au survol */
+        }
+        th {
+            background-color: rgb(0, 0, 0);
+            color: #DAAE62; /* Couleur de fond pour les cellules d'en-tête */
+        } 
+        h1{
+        color:rgb(255, 255, 255);
+        text-align: center;
+        position:static;
+        padding-top: 5%;
+        }
+        h2{
+            color: #ffffff;
+        }
+        .topnav a.accueil {
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            text-decoration: underline;
+
+        }
+        
+    </style>
+</head>
+
+<body>  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="shadow"></div>
+    <h1> Tournoi UNSS 2023-2024 </h1>
+    <p>{{msg}}</p>
+    {% for row in rows %}
+        <h2><center> Poule {{ row["id"] }}</center></h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Nom des équipes</th>
+                    <th> Points </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ligne in tab_equipe %}
+                    {% if ligne[1] == row["id"] %}
+                    <tr>
+                        <td>{{ ligne[0] }}</td>
+                        <td>{{ ligne[2] }}</td>
+
+                    </tr>
+                    {% endif %}
+
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,313 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% extends "menu.html" %}
+
+{% block content %}
+<style>
+body {
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-image: url(https://img.freepik.com/photos-premium/journee-internationale-du-sport-6-avril_10221-18936.jpg);
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 10%;
+        }
+.login {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 340px;
+  height: 580px;
+  background: #2c2c2c;
+  padding: 47px;
+  padding-bottom: 57px; /* Vous avez spécifié deux fois padding-bottom, vous voudrez peut-être en garder un seul */
+  color: #fff;
+  border-radius: 17px;
+  font-size: 1.3em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.login input[type="text"],
+.login input[type="number"]
+.login input[type="password"] {
+  opacity: 1;
+  display: block;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 13px 18px;
+  margin: 20px 0 0 0;
+  font-size: 0.8em;
+  border-radius: 100px;
+  background: #3c3c3c;
+  color: #fff;
+}
+
+
+
+.login input[type=submit],
+.login input[type=button],
+.h1 {
+  border: 0;
+  outline: 0;
+  width: 100%;
+  padding: 13px;
+  margin: 40px 0 0 0;
+  border-radius: 500px;
+  font-weight: 600;
+  animation: bounce2 1.6s;
+}
+
+.h1 {
+  padding: 0;
+  position: relative;
+  top: -35px;
+  display: block;
+  margin-bottom: -0px;
+  font-size: 1.3em;
+}
+
+.btn {
+  background: linear-gradient(144deg, #f501f5, #521b4b 50%, #981398);
+  color: #fff;
+  padding: 16px !important;
+  margin-bottom: 20%;
+}
+
+.btn:hover {
+  background: linear-gradient(144deg, #ffffff , 20%,#7b7b7b 50%,#ffffff );
+  color: rgb(0, 0, 0);
+  padding: 16px !important;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.login input[type=text],
+.login input[type=number]
+
+.login input[type=radio] {
+  animation: bounce 1s;
+  -webkit-appearance: none;
+}
+
+.login input[type=password] {
+  animation: bounce1 1.3s;
+}
+.login p {
+  animation: bounce1 1.5s;
+  color: rgb(96, 96, 96);
+  font-size: 0.7rem;
+  text-align: justify;
+  padding-bottom: 20px;
+}
+
+.ui {
+  font-weight: bolder;
+  background: -webkit-linear-gradient(#B563FF, #535EFC, #0EC8EE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 4px solid transparent;
+  border-image: linear-gradient(0.25turn, #535EFC, #0EC8EE, #0EC8EE);
+  border-image-slice: 1;
+  display: inline;
+}
+
+@media only screen and (max-width: 600px) {
+  .login {
+    width: 70%;
+    padding: 3em;
+  }
+
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-250px);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce1 {
+  0% {
+    opacity: 0;
+  }
+
+  40% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce2 {
+  0% {
+    opacity: 0;
+  }
+
+  70% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .login {
+    width: 70%;
+    padding: 3em; /* Ajusté pour un meilleur rendu sur mobile */
+  }
+}
+.automatique-input {
+  opacity: 1;
+  display: block;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 13px 18px;
+  margin: 20px 0 0 0;
+  font-size: 0.8em;
+  border-radius: 100px;
+  background: #3c3c3c;
+  color: #fff;
+  animation: bounce 1s;
+  -webkit-appearance: none;
+}
+
+
+
+
+
+
+
+.input {
+  -webkit-appearance: none;
+ /* remove default */
+  display: inline-block;
+  margin: 10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  vertical-align: middle;
+  box-shadow: hsla(0,0%,100%,.15) 0 1px 1px, inset hsla(0,0%,0%,.5) 0 0 0 1px;
+  background-color: hsla(0,0%,0%,.2);
+  background-image: -webkit-radial-gradient( rgb(255, 204, 255) 0%, rgb(255, 102, 214) 15%, hsla(286, 100%, 60%, 0.3) 28%, hsla(200,100%,30%,0) 70% );
+  background-repeat: no-repeat;
+  -webkit-transition: background-position .15s cubic-bezier(.8, 0, 1, 1),
+    -webkit-transform .25s cubic-bezier(.8, 0, 1, 1);
+  outline: none;
+}
+
+.input:checked {
+  -webkit-transition: background-position .2s .15s cubic-bezier(0, 0, .2, 1),
+    -webkit-transform .25s cubic-bezier(0, 0, .2, 1);
+}
+
+.input:active {
+  -webkit-transform: scale(1.5);
+  -webkit-transition: -webkit-transform .1s cubic-bezier(0, 0, .2, 1);
+}
+
+
+
+/* The left/right direction logic */
+
+.input,
+.input:active {
+  background-position: 24px 0;
+}
+
+.input:checked {
+  background-position: 0 0;
+}
+
+.input:checked ~ .input,
+.input:checked ~ .input:active {
+  background-position:  -24px 0;
+}
+
+</style>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Connexion</title>
+</head>
+<body>
+    <br><br><br>
+    <div class="login wrap">
+        <div class="h1">Créer un tournoi</div>
+        <form action="{{url_for('addclient')}}" method="post">
+          <input type="text" name="nom" placeholder="Nom du tournoi" /><br />
+          <input type="text" name="sport" placeholder="Sport"/><br />
+          <input type="text" name="date" placeholder="Date"/><br />
+
+          <div class="radio-input">
+            <input name="type" type="radio" class="input" value="classique" id="classiqueRadio" checked=""><label><strong>Classique</strong></label>
+            <input name="type" type="radio" class="input" value="automatique" id="automatiqueRadio"><label for="automatiqueRadio"><strong>Automatique</strong></label>
+          </div>
+          <div id="additionalInputContainer">
+          </div>
+        <input class="btn" value="Valider" type="submit">
+        <h4>{{error_msg}} </h4>
+
+        <p>Le mode classique vous permet d'entrer les équipes, les poules et les matchs un par un comme vous le souhaitez,
+          tandis que l'automatique répartit les équipe dans les poules et crée automatiquement les matchs ! </p>
+
+    </div>
+
+
+<script>
+  const classiqueRadio = document.getElementById('classiqueRadio');
+  const automatiqueRadio = document.getElementById('automatiqueRadio');
+  const additionalInputContainer = document.getElementById('additionalInputContainer');
+
+
+  // Add HTML text to the additionalInputContainer when "Classique" is selected
+  classiqueRadio.addEventListener('change', () => {
+        if (classiqueRadio.checked) {
+          additionalInputContainer.innerHTML = '';
+        }
+      });
+  automatiqueRadio.addEventListener('change', () => {
+    if (automatiqueRadio.checked) {
+      const newInput = document.createElement('input');
+      newInput.type = 'number';
+      newInput.name = 'nb_equipes';
+      newInput.placeholder = 'Nombre d\'équipes';
+      newInput.className = 'automatique-input'; // Add the class here
+      additionalInputContainer.innerHTML = '';
+      additionalInputContainer.appendChild(newInput);
+
+      const poule = document.createElement('input');
+      poule.type = 'number';
+      poule.name = 'nb_poules';
+      poule.placeholder = 'Nombre de poules';
+      poule.className = 'automatique-input'; // Add the class here
+      additionalInputContainer.appendChild(poule);
+    }
+  });
+
+  if (automatiqueRadio.checked) {
+    automatiqueRadio.dispatchEvent(new Event('change'));
+  } else {
+    classiqueRadio.dispatchEvent(new Event('change'));
+  }
+</script>
+</body>
+</html>
+
+
+{% endblock %}

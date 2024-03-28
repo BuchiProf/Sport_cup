@@ -1,0 +1,165 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vos Tournois</title>
+    <style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .topnav {
+        position: fixed;
+        margin-top: -0.5%;
+        width: 100%;
+        overflow: hidden;
+        background-color: black;
+    }
+
+    .topnav a, .topnav select {
+        position: relative;
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 15px;
+        text-decoration: none;
+        font-size: 0.8rem;
+        background-color: black;
+        border: none; 
+        margin: 10px;
+        margin-top:20px;
+        border-radius: 15px;
+
+
+    }
+    .topnav a:hover, .topnav select:hover {
+        background-color: #d63ad6ae;
+        padding: 17px;
+        transition: ease-in 0.2s;
+    
+    }
+    .topnav select {
+        color: #f2f2f2; 
+        cursor: pointer; 
+        
+    }
+
+    .topnav option {
+        background: #000;
+        color: #ffffff; 
+        margin-top: 50px;
+    }
+    
+
+    .navbar .menu-hamburger {
+        display: none; 
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 60px;
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 690px) {
+        .navbar {
+            position: relative;
+        }
+
+        .topnav {
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.751);
+            backdrop-filter: blur(7px);
+            justify-self: center;
+            align-items: center;
+            display: none; 
+        }
+
+        .topnav a, .topnav select {
+            display: flex;
+            padding: 20px;
+            width: 100%;
+            flex-direction: column;
+        
+
+        .topnav.mobile-menu, .topnav select{
+            display: flex;
+            flex-direction: column; 
+            margin-left: 0;
+            width: 100%;
+        }
+        .topnav.mobile-menu a, .topnav select{
+            
+            width: 50%;
+
+        }
+        .login.menu{
+            display: none;
+        }
+
+        .navbar .logo {
+            display: none;
+        }
+
+        .navbar .menu-hamburger {
+            display: block; 
+        }
+    }
+</style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="topnav">
+            <a class='logo' href="{{ url_for('home') }}">🏐</a>
+            <a class='accueil' href="{{ url_for('home') }}">Accueil</a>
+            <select onchange="if (this.value) window.location.href=this.value;">
+                <option value="">Tournoi</option>
+                {% for tournoi in tab_tournoi %}
+                <option value="{{ url_for('home', id_tournoi=tournoi['id']) }}">{{ tournoi['nom'] }}</option>
+                {% endfor %}
+                <option value="{{ url_for('page_parametre') }}">Créer un nouveau tournoi</option>
+            </select>
+            {% if id_tournoi is defined and id_tournoi != 'non_def' %}
+            <select onchange="window.location.href=this.value;">
+                <option value="">Equipe</option>
+                <option value="{{ url_for('liste_equipes') }}">Liste des équipes</option>
+            </select>
+            <select onchange="window.location.href=this.value;">
+                <option value="">Match</option>
+                <option value="{{ url_for('liste_matchs', id_tournoi=id_tournoi) }}">Voir les matchs</option>
+                <option value="{{ url_for('page_edit_match') }}">Modifier matchs</option>
+                <option value="{{ url_for('page_set_score') }}">Définir score</option>
+            </select>
+            {% else %}
+            <!-- Vous pouvez choisir de désactiver les sélections ou d'afficher un message. Exemple pour désactiver : -->
+            <select disabled>
+                <option value="">Equipe (Sélectionnez un tournoi)</option>
+            </select>
+            <select disabled>
+                <option value="">Match (Sélectionnez un tournoi)</option>
+            </select>
+            {% endif %}
+        </div>
+        <img src="https://cdn.dribbble.com/users/752541/screenshots/5410776/menu-goud_still_2x.gif?compress=1&resize=400x300" alt="menu hamburger" class="menu-hamburger">
+    </nav>
+    {% block content %}{% endblock %}
+
+    <script>
+ document.addEventListener('DOMContentLoaded', function () {
+            const menuHamburger = document.querySelector(".menu-hamburger");
+            const navLinks = document.querySelector(".topnav");
+            const logindiv = document.querySelector(".login");
+
+            menuHamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('mobile-menu');
+                logindiv.classList.toggle('login');
+
+            });
+        });    </script>
+</body>
+</html>

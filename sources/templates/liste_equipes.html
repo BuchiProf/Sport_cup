@@ -1,0 +1,30 @@
+{% extends "menu.html" %}
+
+{% block content %}
+
+<!doctype html>
+<html>
+	<body>
+		<table border = 1>
+			<thead>
+                <td>ID</td>
+				<td>Nom</td>
+				<td>N_Poule</td>
+                <td>Points</td>
+
+			</thead>
+			{% for row in rows %}
+			<h1> {{row["code"]}}</h1>                       
+				<tr>
+					<td>{{row["id"]}}</td>
+					<td>{{row["nom"]}}</td>
+					<td>Poule {{row["poule_id"]}}</td>
+					<td>{{row["point"]}}</td>
+
+				</tr>
+			{% endfor %}
+		</table>
+		<a href = "/">Retour à la page d'accueil</a>
+	</body>	
+</html>
+{% endblock %}

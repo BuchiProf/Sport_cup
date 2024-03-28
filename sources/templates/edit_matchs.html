@@ -1,0 +1,32 @@
+{% extends "menu.html" %}
+
+{% block content %}
+
+<!doctype html>
+<html>
+	<body>
+			<br><br><br><br>
+			<form action="{{url_for('trier_par_poules')}}" method="post">
+                <label for="poules">Choisissez une option :</label>
+        		<select id="poules" name="poules">
+					{% for poule in poules %}
+						<option value="Poule{{poule["id"]}}">Poule{{poule["id"]}}</option>
+					{% endfor %}
+				</select>
+
+               <input type="submit" value = "Filtrer">
+           </form>
+
+		   <h1>{{titre}}</h1>   
+			
+			{% for row in rows %}
+            <h3>{{row["equipe1"]}}  <input type="number" value={{row["score_equipe1"]}}> - <input type="number" value={{row["score_equipe2"]}}> {{row["equipe2"]}}</h3>
+            <a>Date: <input type="date" value={{row["date"]}}></a>
+			<a> - Heurre: <input type="time" value = {{row["heurre"]}}</a>
+			<a> - Lieu: <input type="text" value = {{row["lieu"]}}></a>
+			<br><br>
+			{% endfor %}
+		<a href = "/">Retour à la page d'accueil</a>
+	</body>	
+</html>
+{% endblock %}

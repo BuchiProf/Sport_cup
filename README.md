@@ -1,1 +1,7 @@
-# Sport_cup
+L’application est assez simple d’utilisation, lorsqu’on arrive sur le site, une page de connexion s’affiche, il faut entrer les informations suivantes pour accéder au reste:
+
+Nom d’utilisateur: admin
+
+Mot de Passe: secret
+
+Ensuite dans la barre de navigation en haut, un bouton tournoi est cliqua le. si on clique dessus on peut sois sélectionner un tournoi permis ceux qui sont dans la base de donnée, qui par default est vide. Un bouton tout en bas de cette liste de tournoi s’appelle: Créer un tournoi, cliquez dessus et une page avec les infos du tournois s’affiche ras, sélectionnez de préférence le mode automatique car le mode manuel n’est pas fonctionnel. Ensuite entre le nombre d’équipe, de poules, le nom, le sport et la date, et les équipes seront repartis toutes seules dans le nombre de poules, il reste plus qu’à entrer le nom de toutes vos équipes, rt enfin valider, les matchs seront créés tout seul pour chaque poule, chaque équipe affrontes toutes les autres. Vous pouvez modifier la date le lieu et l’heure du match sois tout de suite, sois plus tard mais dans tout les cas il faudra valider tout en bas de la page. Ensuite lorsqu’un tournoi est sélectionner les catégories équipes et matchs apparaissent, le bouton équipe sert juste à afficher un tableau pas très jolie des équipes, et la catégorie match sert à modifier le score d’un match, le lieu la date l’heure du match. Il y a donc peu de boutons ce qui rend selon nous l’application simple d’utilisation. Quelques fonctionnalités restes tout de même a créer ou modifier et adapter. Tout n’est donc pas fonctionnel dans cette application.

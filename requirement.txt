@@ -1,0 +1,5 @@
+Requirement:
+Il faut au préalable avoir installé la bibliothèque Flask, itertools, Flask_session, sqlite3
+La bibliothèque random est installé par défault dans votre IDE.
+
+

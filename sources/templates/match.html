@@ -1,0 +1,53 @@
+{% extends "menu.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affichage des équipes</title>
+</head>
+<body>
+
+{% if tournois %}
+    {% for tournoi in tournois %}
+        <h2>Tournoi {{ tournoi[0] }}</h2>
+        <a href="{{ url_for('afficher_poules', tournoi_id=tournoi[0]) }}">Afficher les poules</a>
+        <br><br>
+    {% endfor %}
+{% else %}
+    <p>Aucun tournoi trouvé.</p>
+{% endif %}
+
+{% if poules %}
+    {% for poule in poules %}
+        <h3>Poule {{ poule[0] }}</h3>
+        <a href="{{ url_for('afficher_equipes_poule', tournoi_id=tournoi_id, poule_id=poule[0]) }}">Afficher les équipes</a>
+        <br><br>
+    {% endfor %}
+{% endif %}
+
+{% if equipes %}
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nom de l'équipe</th>
+                <!-- Ajoutez d'autres colonnes au besoin -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for equipe in equipes %}
+                <tr>
+                    <td>{{ equipe[1] }}</td>
+                    <!-- Ajoutez d'autres colonnes au besoin -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+</body>
+</html>
+{% endblock %}

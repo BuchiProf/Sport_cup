@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Créer un tournoi</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <style>
+      html, body {
+        display: flex;
+        justify-content: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-image: url(https://img.freepik.com/photos-premium/journee-internationale-du-sport-6-avril_10221-18936.jpg);
+        margin: 0;
+        padding: 0;
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 15px;
+        margin-bottom: 10%;
+        color: #DAAE62;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Opacité de l'effet noir (ajustez selon vos préférences) */
+        z-index: -0; /* Placez l'effet noir en arrière-plan de la page */
+      }
+
+      form {
+        border: 5px solid #f1f1f1;
+        background-color: #000000;
+		margin-top: 100px;
+        box-shadow: #000000;
+		z-index: 1;
+      }
+
+      input[type="number"] {
+        width: 100%;
+        padding: 16px 8px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+    #additionalInputContainer input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border-radius: 25px;
+  }
+	  p{
+		color: red;
+	  }
+      button {
+        background-color: #8ebf42;
+        color: white;
+        padding: 14px 0;
+        margin: 10px 0;
+        border: none;
+        cursor: grabbing;
+        width: 100%;
+      }
+	  a{
+		position: flex;
+		justify-content: center;
+		margin-left: 22%;
+		text-align: center;
+	  }
+      h1 {
+        text-align: center;
+        font-size: 18px;
+      }
+
+      button:hover {
+        opacity: 0.8;
+      }
+
+      .formcontainer {
+        text-align: left;
+        margin: 24px 50px 12px;
+      }
+
+      .container {
+        padding: 16px 0;
+        text-align: left;
+      }
+
+      span.psw {
+        float: right;
+        padding-top: 0;
+        padding-right: 15px;
+      }
+      .input {
+        -webkit-appearance: none;
+        /* remove default */
+        display: inline-block;
+        margin: 10px;
+        width: 24px;
+        height: 24px;
+        border-radius: 12px;
+        cursor: pointer;
+        box-shadow: hsla(0,0%,100%,.15) 0 1px 1px, inset hsla(0,0%,0%,.5) 0 0 0 1px;
+        background-color: hsla(0,0%,0%,.2);
+        background-image: -webkit-radial-gradient( hsla(200,100%,90%,1) 0%, hsla(200,100%,70%,1) 15%, hsla(200,100%,60%,.3) 28%, hsla(200,100%,30%,0) 70% );
+        background-repeat: no-repeat;
+        -webkit-transition: background-position .15s cubic-bezier(.8, 0, 1, 1),
+          -webkit-transform .25s cubic-bezier(.8, 0, 1, 1);
+        outline: none;
+      }
+
+      .input:checked {
+        -webkit-transition: background-position .2s .15s cubic-bezier(0, 0, .2, 1),
+        -webkit-transform .25s cubic-bezier(0, 0, .2, 1);
+      }
+
+.input:active {
+  -webkit-transform: scale(1.5);
+  -webkit-transition: -webkit-transform .1s cubic-bezier(0, 0, .2, 1);
+}
+
+
+
+/* The up/down direction logic */
+
+.input,
+.input:active {
+  background-position: 24px 0;
+}
+
+.input:checked {
+  background-position: 0 0;
+}
+
+.input:checked ~ .input,
+.input:checked ~ .input:active {
+  background-position: -24px 0;
+}
+
+      /* Change styles for span on extra small screens */
+      @media screen and (max-width: 300px) {
+        span.psw {
+          display: block;
+          float: none;
+        }
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <form action="{{url_for('addclient')}}" method="POST">
+      <h1>Créer un tournoi</h1>
+      <div class="formcontainer">
+        <hr />
+        <div class="container">
+
+          <label for="uname"><strong>Nom du tournoi</strong></label>
+          <input type="text" name="nom" /><br />
+
+          <label for="uname"><strong>Sport</strong></label>
+          <input type="number" name="sport" /><br />
+
+          <label for="uname"><strong>Date</strong></label>
+          <input type="number" name="date" /><br />
+
+          <div class="radio-input">
+            <input name="type" type="radio" class="input" id="classiqueRadio" checked=""><label><strong>Classique</strong></label>
+            <input name="type" type="radio" class="input" id="automatiqueRadio"><label for="automatiqueRadio"><strong>Automatique</strong></label>
+          </div>
+          <div id="additionalInputContainer">
+            <p>azedazdad </p>
+          </div>
+        </div>
+			<p>{{error_msg}}</p>
+        <button type="submit">Valider</button>
+		<a href="/">retour à la page d'accueil</a>
+      </div>
+    </form>
+
+    <script>
+      // Reference the radio buttons and additional input container
+      const classiqueRadio = document.getElementById('classiqueRadio');
+      const automatiqueRadio = document.getElementById('automatiqueRadio');
+      const additionalInputContainer = document.getElementById('additionalInputContainer');
+
+      // Add HTML text to the additionalInputContainer when "Classique" is selected
+      classiqueRadio.addEventListener('change', () => {
+        if (classiqueRadio.checked) {
+          additionalInputContainer.innerHTML = '<p>azedazdad </p>';
+        }
+      });
+
+      // Add an event listener to the "Automatique" radio button
+      automatiqueRadio.addEventListener('change', () => {
+        if (automatiqueRadio.checked) {
+          // Create a new input field and append it to the additional input container
+          const newInput = document.createElement('input');
+          newInput.type = 'text';
+          newInput.name = 'additionalInput';
+          newInput.placeholder = 'Enter additional information...';
+          additionalInputContainer.innerHTML = '';
+          additionalInputContainer.appendChild(newInput);
+        }
+      });
+
+      // Initialize the additional input field if "Automatique" is already selected
+      if (automatiqueRadio.checked) {
+        automatiqueRadio.dispatchEvent(new Event('change'));
+      } else {
+        classiqueRadio.dispatchEvent(new Event('change'));
+      }
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
